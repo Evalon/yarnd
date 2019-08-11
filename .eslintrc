@@ -1,0 +1,23 @@
+{
+  "plugins": ["flowtype", "jest"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:jest/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "plugin:flowtype/recommended"
+  ],
+  "env": {
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true,
+      "jsx": true
+    }
+  }
+}

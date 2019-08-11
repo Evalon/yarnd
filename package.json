@@ -1,0 +1,40 @@
+{
+  "name": "yarnd",
+  "version": "1.0.0",
+  "author": "Dmitry Sokolov",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "bin": {
+    "yarnd": "lib/controllers/index.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "check": "flow .",
+    "build": "babel src --out-dir lib"
+  },
+  "dependencies": {
+    "@yarnpkg/lockfile": "^1.1.0",
+    "chalk": "^2.4.1",
+    "inquirer": "^6.5.1",
+    "ramda": "^0.26.1",
+    "semver": "^6.3.0",
+    "yargs": "^13.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-flowtype": "^4.2.0",
+    "eslint-plugin-jest": "^22.15.0",
+    "flow-bin": "0.105.1",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2"
+  }
+}
