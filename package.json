@@ -1,6 +1,6 @@
 {
   "name": "yarnd",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Dmitry Sokolov",
   "license": "MIT",
   "main": "lib/index.js",
