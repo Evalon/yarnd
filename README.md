@@ -1,6 +1,6 @@
 # Yarnd
 
-Deduplication util for yarn
+Deduplication utility for yarn
 
 ```sh
 yarn add --dev yarnd
@@ -26,7 +26,7 @@ So you have four choices:
 
 ## Commands
 
-Check specific packages or all if packages not specified need to be deduped and return an error if so (default):
+Check if specific packages (or all packages if packages argument is not provided) need to be deduped and return an error if so (default):
 ```sh
 yarnd check [packages]
 ``` 
@@ -60,7 +60,7 @@ Example: ```--excluded @babel/``` - exclude all @babel namespace.
 
 ##### Aliases
 
-All flags have aliases by the first letter, so is equal commands: 
+All flags have aliases by the first letter, so this is equal commands: 
 - ```yarnd fix -ps```
 - ```yarnd fix -p -s```
 - ```yarnd fix --primary --strict```
