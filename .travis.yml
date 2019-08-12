@@ -9,7 +9,7 @@ jobs:
   include:
     - stage: release
       if: tag IS present
-      script: yarn buidl
+      script: yarn build
       deploy:
         provider: npm
         email: "$NPM_EMAIL"
