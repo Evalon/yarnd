@@ -9,8 +9,8 @@ yarn add --dev yarnd
 
 ## Why?
 
-Yarn encourage reliability and work really good for this purpose, sometimes too good.
-Sometimes when you want update some deps yarn didnt update transitive dependencies that already in use in other package.
+Yarn encourage reliability and works really well for this purpose.
+But sometimes when you want update some direct dependencies yarn didn't update transitive dependencies that already in use in other package. Therefore you can get two or more the same packages installed. For web bundles it's sometimes crucial to get only one or at least as less as possible same dependencies. Because of possible errors and bigger bundle size if several duplicated dependencies present.
 So you have four choices:
 1. Remove yarn.lock entirely and install again (Worst)
 2. Update lock.file manually (Error prone)
