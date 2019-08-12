@@ -2,6 +2,14 @@
 
 Deduplication util for yarn
 
+```sh
+npm install --save-dev yarnd
+```
+```sh
+yarn add --dev yarnd
+```
+
+
 ## Why?
 
 Yarn encourage reliability and work really good for this purpose, sometimes too good.
