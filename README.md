@@ -15,7 +15,7 @@ So you have four choices:
 1. Remove yarn.lock entirely and install again (Worst)
 2. Update lock.file manually (Error prone)
 3. Add and remove dependency directly (Worked, but not convenient)
-4. Use utility to dedupe lock.file (like this)
+4. Use utility to deduplicate packages in lock.file (like this)
 
 ## Examples 
 
@@ -26,17 +26,17 @@ So you have four choices:
 
 ## Commands
 
-Check if specific packages (or all packages if packages argument is not provided) need to be deduped and return an error if so (default):
+Check for duplicated packages in yarn.lock and raise an error if they found (default):
 ```sh
 yarnd check [packages]
 ``` 
-Dedupe specific packages or all if packages not specified
+Deduplicate specific packages or all if packages not provided
 ```sh
 yarnd fix [packages] 
 ``` 
 Default command can be run either by command name or only with the name of the package (yarnd ...)
 
-**Warning**: After ```yarnd fix``` - dedupe run ```yarn install --force``` because yarn balanced file in it's own way and this command **must** be run after dedupe
+**Warning**: After ```yarnd fix``` - yarnd run ```yarn install --force``` because yarn balanced file in it's own way and this command **must** be run after yarnd
 
 ##### Common flags
 
@@ -50,7 +50,7 @@ Default command can be run either by command name or only with the name of the p
 ```--included [packages]```, ```--primary```, ```--dev``` works applicative, so every command added packages to check-list.
 ##### Check flags
 
-- ```--strict``` more verbose output that shows dependencies that cannot be deduped by semver. (filtered by previous commands)
+- ```--strict``` more verbose output that shows dependencies that cannot be deduplicated by semver. (filtered by previous commands)
 
 ##### Namespaces
 
