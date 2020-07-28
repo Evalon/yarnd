@@ -1,7 +1,7 @@
 //@flow
 import * as R from 'ramda'
-import util from 'util'
 import path from 'path'
+import { spawn  } from 'child_process'
 import { getLockFile } from '../../utils/getLockFile'
 import { getPackages } from '../../models/getPackages'
 import { getDuplicateDependencies } from '../../models/getDuplicateDependencies'
@@ -11,9 +11,6 @@ import { PackageView } from '../../views/PackageView'
 import { mergeWithDefaultObject } from '../mergeWithDefaultObject'
 import { dedupeDependencies } from '../../models/dedupeDependencies'
 import { writeLockFile } from '../../utils/writeLockFile'
-
-import { exec as exec_callback } from 'child_process'
-const exec = util.promisify(exec_callback)
 
 exports.command = ['fix [included..]']
 
@@ -71,10 +68,15 @@ exports.handler = async function(argvParam: Object) {
     PackageView({ packages, optimizedPackages })
   }
   writeLockFile(deduped, argv.lock)
-  await exec(
-    'yarn install --force',
-    { cwd: path.resolve(argv.lock, './../') },
-    (e, out, err) => console.log(out || err),
-  )
-  return Promise.resolve('Dependencies deduped')
+  console.log('yarn install --force')
+  return new Promise(((resolve) => {
+    const install = spawn(
+      'yarn',
+      ['--force'],
+      { cwd: path.resolve(argv.lock, './../') },
+    )
+    install.stdout.on('data', data => process.stdout.write(data.toString()))
+    install.stderr.on('data', data => process.stdout.write(data.toString()))
+    install.on('close', resolve('Dependencies deduplicated'))
+  }))
 }
